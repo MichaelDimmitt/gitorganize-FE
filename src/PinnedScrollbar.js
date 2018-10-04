@@ -1,6 +1,6 @@
 import React from 'react';
 const { HandleThing, RepoTitle, SeemsUnused } = require('./lineOneDependencies.js')
-const { AltItem } = require('./altItem.js') 
+const { AltItem } = require('./altItem.js')
 /**
  * A counter button: tap the button to increase the count.
  */
@@ -41,16 +41,16 @@ const PinnedElement = ({}) => (
   </div>
 )
 
- 
+
 const ListItem = ({name}) => (
     <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
-      <PinnedElement/>      
+      <PinnedElement/>
     </li>
 );
 
 const NotSure = ({name}) => (
   <div>
-    {/* not sure 
+    {/* not sure
     <div id="ajax-error-message" className="ajax-error-message flash flash-error">
       <svg className="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
         <path fillRule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" /></svg>
@@ -63,7 +63,7 @@ const NotSure = ({name}) => (
   */}
   </div>
 );
-    
+
 const SubmitOrError = ({name}) => (
   <div>
     <details className="details-reset details-overlay details-overlay-dark" data-deferred-details-content-url="/users/MichaelDimmitt/pinned_repositories_modal" id="choose-pinned-repositories">
@@ -100,23 +100,46 @@ class PinnedScrollbar extends React.Component {
           type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-c163002918ede72971a36e0025f67a4a.js"></script>
         <script crossOrigin="anonymous" async="async" integrity="sha512-mKirltAYIDdLyjM6JXq3/pDWd9Hq8ZxXzbioLqfaYCw+za8uLbbYxQ/hD1+/i4zlZo0E9Cm9A6qRyU665FfQnA=="
           type="application/javascript" src="https://assets-cdn.github.com/assets/github-648fd55067472ce5fae41cdf92f72074.js"></script>
-          
+
         <div className="col-10 float-left">
-            
-            <div className="js-pinned-repos-reorder-container">   
+
+            <div className="js-pinned-repos-reorder-container">
             <SubmitOrError/>
             <form className="js-pinned-repos-reorder-form" id="user-11463275-pinned-repos-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_repositories"
               acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"
-              name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" />        
-              <ol className="pinned-repos-list  mb-4 js-pinned-repos-reorder-list" >
-              
-                <ListItem/>  
-                <ListItem/>  
-                
+              name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" />
+            <ol className="pinned-repos-list  mb-4 js-pinned-repos-reorder-list" >
+
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <AltItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
                 {/*}
-                  <ListItem/>  
-                */} 
-              </ol>         
+                */}
+              </ol>
             </form>
           </div>
         </div>
