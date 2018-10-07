@@ -18,15 +18,9 @@ const NotSure = ({name}) => (
 );
 
 const SubmitOrError = ({name}) => (
-  <div>
-    <details className="details-reset details-overlay details-overlay-dark" data-deferred-details-content-url="/users/MichaelDimmitt/pinned_repositories_modal" id="choose-pinned-repositories">
-      <summary className="btn-link muted-link float-right mt-1 pinned-repos-setting-link">Customize your pinned repositories</summary>
-      <details-dialog className="anim-fade-in fast Box Box--overlay d-flex flex-column">
-        <include-fragment className="octocat-spinner my-3" aria-label="Loading..."></include-fragment>
-      </details-dialog>
-    </details>
-
-    <h2 className="f4 mb-2 text-normal">
+  <div style={{display:'flex',flex:4, justifyContent:'space-evenly'}} >
+    
+    <h2 style={{ width: '359px' }} className="f4 mb-2 text-normal">
       Pinned repositories
       <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="13" className="spinner pinned-repos-spinner js-pinned-repos-spinner"
         alt=""/>
@@ -34,5 +28,11 @@ const SubmitOrError = ({name}) => (
       <span className="ml-2 text-gray f6 js-pinned-repos-reorder-message" role="status" aria-live="polite"
         data-error-text="Something went wrong." data-success-text="Order updated."></span>
     </h2>
+    <details style={{ width: '359px' }} className="details-reset details-overlay details-overlay-dark" data-deferred-details-content-url="/users/MichaelDimmitt/pinned_repositories_modal" id="choose-pinned-repositories">
+      <summary className="btn-link muted-link float-right mt-1 pinned-repos-setting-link">Customize your pinned repositories</summary>
+      <details-dialog className="anim-fade-in fast Box Box--overlay d-flex flex-column">
+        <include-fragment className="octocat-spinner my-3" aria-label="Loading..."></include-fragment>
+      </details-dialog>
+    </details>
   </div>
 );
