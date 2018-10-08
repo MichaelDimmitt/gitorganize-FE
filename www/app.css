@@ -1,3 +1,41 @@
+
+.pinned-item {
+  width: 359px;
+}
+
+.try {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.mainy  { display: flex; }
+
+@media only screen and (min-width: 1221px) {
+  .custom { width: 718px }
+  .thing {
+    display:flex;
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+@media only screen and (max-width: 1220px) {
+  .mainy  { width: 100%; }
+  .custom { width: 359px; }
+  .thing {
+    display:flex;
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+/* *******************   DropDown Logic   ******************* */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -51,15 +89,3 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
-
-.custom { width: 359px }
-.mainy  { display: flex; }
-
-@media only screen and (max-width: 1250px) {
-  .custom { width: 718px }
-  .mainy  { width: 1250px; }
-}
-
-@media only screen and (min-width: 1251px) {
-  .custom { width: 718px }
-}
