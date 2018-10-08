@@ -32,8 +32,10 @@ const LineThreeLanguageAndStar = ({name}) => (
 
 const PinnedElement = ({}) => (
   <div className="pinned-repo-item-content">
+    <div className="itemSquare">
     <LineOneHandleAndTitle/>
     <LineTwoDescription/>
     <LineThreeLanguageAndStar/>
+    </div>
   </div>
 )

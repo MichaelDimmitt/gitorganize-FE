@@ -1,8 +1,9 @@
 import React from 'react';
 export { AltItem }
 const AltItem = ({name}) => (
-  <li className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
+  <li className="pinned-repo-item mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
     <div className="pinned-repo-item-content">
+      <div className="itemSquare">
       <span className="d-block position-relative">
         <input type="hidden" name="repo_ids[]" id="pinned-repo-reorder-147894355" value="147894355"
           className="form-control" />
@@ -40,6 +41,7 @@ const AltItem = ({name}) => (
           1
         </a>
       </p>
+      </div>
     </div>
   </li>
 );

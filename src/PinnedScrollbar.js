@@ -4,7 +4,7 @@ const { PinnedElement } = require('./PinnedElement.js')
 const { NotSure, SubmitOrError } = require('./unknownLogic.js')
 
 const ListItem = ({name}) => (
-    <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
+    <li  className="pinned-repo-item mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
       <PinnedElement/>
     </li>
 );
