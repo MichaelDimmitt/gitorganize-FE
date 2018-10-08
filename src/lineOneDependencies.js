@@ -9,9 +9,9 @@ const HandleThing = ({name}) => (
   </span>
 )
 
-const RepoTitle = ({name}) => (
-  <a href="https://github.com/MichaelDimmitt/ERRORSCREAM" className="text-bold">
-    <span className="repo js-repo" title="ERRORSCREAM">ERRORSCREAM</span>
+const RepoTitle = ({user, repo}) => (
+  <a href={`https://github.com/${user}/${repo}`} className="text-bold">
+    <span className="repo js-repo" title={`${repo}`}>{`${repo}`}</span>
   </a>
 )
 
