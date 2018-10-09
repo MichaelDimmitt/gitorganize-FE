@@ -2,25 +2,25 @@ import React from 'react';
 const { HandleThing, RepoTitle, SeemsUnused } = require('./lineOneDependencies.js')
 export { PinnedElement }
 
-const LineOneHandleAndTitle = ({repo, user}) => (
+const LineOneHandleAndTitle = ({ info:{ repo, user } }) => (
   <span className="d-block position-relative">
     <input type="hidden" name="repo_ids[]" id="pinned-repo-reorder-147890778" value="147890778" className="form-control" />
     <HandleThing /> {/* At moment seems it does not take data. May need to remove superflous logic. */}
-    <RepoTitle   repo={repo} user={user}/>
-    <SeemsUnused repo={repo}/>
+    <RepoTitle   info={ {repo, user }}/>
+    <SeemsUnused info={ {repo }      }/>
   </span>
 )
 
-const LineTwoDescription = ({description}) => (
+const LineTwoDescription = ({ info:{ description } }) => (
   <p className="pinned-repo-desc text-gray text-small d-block mt-2 mb-3">
     {description}
   </p>
 )
 
-const LineThreeLanguageAndStar = ({repo, user, starCount}) => (
+const LineThreeLanguageAndStar = ({ info:{ repo, user, starCount, majorityLanguage } }) => (
   <p className="mb-0 f6 text-gray">
     <span className="repo-language-color pinned-repo-meta" style={{backgroundColor:"#89e051"}}></span>
-    Shell
+    {majorityLanguage}
     <a href={`/${user}/${repo}/stargazers`} className="pinned-repo-meta muted-link">
       <svg aria-label="star" className="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14"
         height="16" role="img">
@@ -30,10 +30,14 @@ const LineThreeLanguageAndStar = ({repo, user, starCount}) => (
   </p>
 )
 
-const PinnedElement = ({repo, user, description, starCount}) => (
+const PinnedElement = ({ info:{ repo, user, description, starCount, majorityLanguage } }) => {
+  console.log({repo, user, description, starCount})
+  return (
+  
   <div className="pinned-repo-item-content">
-    <LineOneHandleAndTitle    repo={repo} user={user}/>
-    <LineTwoDescription       description={description}/>
-    <LineThreeLanguageAndStar repo={repo} user={user} starCount={starCount}/>
+    <LineOneHandleAndTitle    info={ {repo, user}            }/>
+    <LineTwoDescription       info={ {description}           }/>
+    <LineThreeLanguageAndStar info={ {repo, user, starCount, majorityLanguage } }/>
   </div>
 )
+  }
