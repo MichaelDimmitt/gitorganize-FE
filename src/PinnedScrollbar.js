@@ -64,14 +64,14 @@ class PinnedScrollbar extends React.Component {
                     description="stdout to error"
                   />
                   <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
+                    repo="the_willywanka_gitfactory" user="MichaelDimmitt"
+                    starCount={3} majorityLanguage="Shell" languageColor="#89e051"
+                    description="Want me to build you something in git? open an issue or direct message me on slack. 😁 "
                   />
                   <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
+                    repo="emoji-terminal" user="MichaelDimmitt"
+                    starCount={4} majorityLanguage="Shell" languageColor="#89e051"
+                    description=" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
                   />
                   <ListItem
                     repo="ERRORSCREAM" user="MichaelDimmitt"
