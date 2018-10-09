@@ -6,8 +6,8 @@ const LineOneHandleAndTitle = ({}) => (
   <span className="d-block position-relative">
     <input type="hidden" name="repo_ids[]" id="pinned-repo-reorder-147890778" value="147890778" className="form-control" />
     <HandleThing />
-    <RepoTitle user="MichaelDimmitt" repo="ERRORSCREAM"/>
-    <SeemsUnused/>
+    <RepoTitle   repo="ERRORSCREAM" user="MichaelDimmitt"/>
+    <SeemsUnused repo="ERRORSCREAM"/>
   </span>
 )
 
