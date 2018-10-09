@@ -17,10 +17,10 @@ const LineTwoDescription = ({ info:{ description } }) => (
   </p>
 )
 
-const LineThreeLanguageAndStar = ({ info:{ repo, user, starCount, majorityLanguage } }) => (
+const LineThreeLanguageAndStar = ({ info:{ repo, user, starCount, majorityLanguage, languageColor } }) => (
   <p className="mb-0 f6 text-gray">
-    <span className="repo-language-color pinned-repo-meta" style={{backgroundColor:"#89e051"}}></span>
-    {majorityLanguage}
+    <span className="repo-language-color pinned-repo-meta" style={{backgroundColor:languageColor}}></span>
+    {" "+majorityLanguage}
     <a href={`/${user}/${repo}/stargazers`} className="pinned-repo-meta muted-link">
       <svg aria-label="star" className="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14"
         height="16" role="img">
@@ -30,14 +30,14 @@ const LineThreeLanguageAndStar = ({ info:{ repo, user, starCount, majorityLangua
   </p>
 )
 
-const PinnedElement = ({ info:{ repo, user, description, starCount, majorityLanguage } }) => {
-  console.log({repo, user, description, starCount})
+const PinnedElement = ({ info:{ repo, user, description, starCount, majorityLanguage, languageColor } }) => {
+  console.log({repo, user, description, starCount, languageColor})
   return (
   
   <div className="pinned-repo-item-content">
     <LineOneHandleAndTitle    info={ {repo, user}            }/>
     <LineTwoDescription       info={ {description}           }/>
-    <LineThreeLanguageAndStar info={ {repo, user, starCount, majorityLanguage } }/>
+    <LineThreeLanguageAndStar info={ {repo, user, starCount, majorityLanguage, languageColor } }/>
   </div>
 )
   }
