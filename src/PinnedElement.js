@@ -30,10 +30,10 @@ const LineThreeLanguageAndStar = ({repo, user, starCount}) => (
   </p>
 )
 
-const PinnedElement = ({}) => (
+const PinnedElement = ({repo, user, description, starCount}) => (
   <div className="pinned-repo-item-content">
-    <LineOneHandleAndTitle repo="ERRORSCREAM" user="MichaelDimmitt"/>
-    <LineTwoDescription description="stdout to error"/>
-    <LineThreeLanguageAndStar repo="ERRORSCREAM" user="MichaelDimmitt" starCount={1}/>
+    <LineOneHandleAndTitle    repo={repo} user={user}/>
+    <LineTwoDescription       description={description}/>
+    <LineThreeLanguageAndStar repo={repo} user={user} starCount={starCount}/>
   </div>
 )
