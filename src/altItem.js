@@ -25,7 +25,7 @@ const AltItem = ({name}) => (
       </span>
 
 
-      <p className="pinned-repo-desc text-gray text-small d-block mt-2 mb-3">
+      <p className="pinned-repo-desc text-gray font-resizer d-block mt-2 mb-3">
         flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the
         values. format the stuff do the things.
       </p>
