@@ -41,15 +41,42 @@ class PinnedScrollbar extends React.Component {
       "js-pinned-repos-reorder-list"
     */
     console.log('next', this.state.showy)
-    let listOfAllRepos = [{ // list of repos:
+    let listOfAllRepos = [
+    { // list of repos:
       repo: "De-Nest",
       user: "MichaelDimmitt",
       starCount: 1,
       majorityLanguage: "Javascript",
       languageColor: "#f1e05a",
       description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
-    }]
-    let orderArray = [4,3,2,1,6,5]
+    },
+    {
+      repo:"the_willywanka_gitfactory",
+      user:"MichaelDimmitt",
+      starCount:3,
+      majorityLanguage:"Shell",
+      languageColor:"#89e051",
+      description:"Want me to build you something in git? open an issue or direct message me on slack. 😁 "
+    },
+    {
+      repo:"emoji-terminal",
+      user:"MichaelDimmitt",
+      starCount:4,
+      majorityLanguage:"Shell",
+      languageColor:"#89e051",
+      description:" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
+    },
+    {
+      repo:"ERRORSCREAM",
+      user:"MichaelDimmitt",
+      starCount:1,
+      majorityLanguage:"Shell",
+      languageColor:"#89e051",
+      description:"stdout to error"
+    }
+
+    ]
+    let orderArray = [3,2,1,0,1,2]
 
     return (
       <div className="mainy" >
@@ -75,22 +102,11 @@ class PinnedScrollbar extends React.Component {
                 {/*above element needed for error message*/}
 
                 <ol className="thing try js-pinned-repos-reorder-list" >
+
                   <NewItem info={listOfAllRepos[0]} />
-                  <ListItem
-                    repo="the_willywanka_gitfactory" user="MichaelDimmitt"
-                    starCount={3} majorityLanguage="Shell" languageColor="#89e051"
-                    description="Want me to build you something in git? open an issue or direct message me on slack. 😁 "
-                  />
-                  <ListItem
-                    repo="emoji-terminal" user="MichaelDimmitt"
-                    starCount={4} majorityLanguage="Shell" languageColor="#89e051"
-                    description=" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
+                  <NewItem info={listOfAllRepos[1]} />
+                  <NewItem info={listOfAllRepos[2]} />
+                  <NewItem info={listOfAllRepos[3]} />
                   {/*}
                   <ListItem
                     repo="ERRORSCREAM" user="MichaelDimmitt"
