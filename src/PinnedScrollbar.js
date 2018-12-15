@@ -12,6 +12,15 @@ console.log('hi', {repo})
 );
 }
 
+const NewItem = ({ info:{repo, user, description, starCount, majorityLanguage, languageColor}}) => {
+console.log('hi', {repo})
+  return (
+    <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
+      <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
+    </li>
+);
+}
+
 class PinnedScrollbar extends React.Component {
   constructor() {
     super();
@@ -32,6 +41,16 @@ class PinnedScrollbar extends React.Component {
       "js-pinned-repos-reorder-list"
     */
     console.log('next', this.state.showy)
+    let listOfAllRepos = [{ // list of repos:
+      repo: "De-Nest",
+      user: "MichaelDimmitt",
+      starCount: 1,
+      majorityLanguage: "Javascript",
+      languageColor: "#f1e05a",
+      description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
+    }]
+    let orderArray = [4,3,2,1,6,5]
+
     return (
       <div className="mainy" >
         <div style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}>
@@ -40,11 +59,11 @@ class PinnedScrollbar extends React.Component {
             {/*above element needed for error message*/}
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
               <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}}  class="" >Pinned repositories</h2>
+                <h2 style={{width:'100%'}}  className="" >Pinned repositories</h2>
                 {/*"custom f4 mb-2 text-normal"*/}
               </div>
               <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}} class="" aria-haspopup="dialog">Customize your pinned repositories</h2>
+                <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize your pinned repositories</h2>
                 {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
               </div>
             </div>
@@ -56,13 +75,7 @@ class PinnedScrollbar extends React.Component {
                 {/*above element needed for error message*/}
 
                 <ol className="thing try js-pinned-repos-reorder-list" >
-
-                  <ListItem
-                    repo="De-Nest" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Javascript" languageColor="#f1e05a"
-                    description="flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the
-                    values. format the stuff do the things."
-                  />
+                  <NewItem info={listOfAllRepos[0]} />
                   <ListItem
                     repo="ERRORSCREAM" user="MichaelDimmitt"
                     starCount={1} majorityLanguage="Shell" languageColor="#89e051"
