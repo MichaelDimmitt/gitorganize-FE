@@ -160,16 +160,16 @@ class PinnedScrollbar extends React.Component {
           </div>
         </div>
         <div className="dropdown" style={{flex:'1', paddingTop: '15px', paddingRight: '10px'}}>
-          <button onClick={this.myFunction} className="dropbtn">Dropdown</button>
+          <button onClick={this.myFunction} className="dropbtn">Themes</button>
           <div id="myDropdown" style={{right:'10px'}} className={"dropdown-content"+ ( (this.state.showy===true) ? " show" : "")}>
             <input type="text" placeholder="Search.." id="myInput" />
-            <a href="#about">About</a>
-            <a href="#base">Base</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-            <a href="#custom">Custom</a>
-            <a href="#support">Support</a>
-            <a href="#tools">Tools</a>
+            <a href="#about">Pinned Repositories</a>
+            <a href="#base">Business Related</a>
+            <a href="#blog">Coding Related</a>
+            <a href="#contact">WorkBench Current</a>
+            <a href="#custom">WorkBench Finance</a>
+            <a href="#support">WorkBench Support</a>
+            <a href="#tools">WorkBench Social</a>
           </div>
         </div>
       </div>
