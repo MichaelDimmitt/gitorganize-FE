@@ -77,17 +77,6 @@ class PinnedScrollbar extends React.Component {
                 <ol className="thing try js-pinned-repos-reorder-list" >
                   <NewItem info={listOfAllRepos[0]} />
                   <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <AltItem />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
                     repo="the_willywanka_gitfactory" user="MichaelDimmitt"
                     starCount={3} majorityLanguage="Shell" languageColor="#89e051"
                     description="Want me to build you something in git? open an issue or direct message me on slack. 😁 "
@@ -102,42 +91,52 @@ class PinnedScrollbar extends React.Component {
                     starCount={1} majorityLanguage="Shell" languageColor="#89e051"
                     description="stdout to error"
                   />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
                   {/*}
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
+                  <ListItem
+                    repo="ERRORSCREAM" user="MichaelDimmitt"
+                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
+                    description="stdout to error"
+                  />
                   */}
                 </ol>
               </form>
