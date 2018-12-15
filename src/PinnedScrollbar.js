@@ -78,6 +78,13 @@ class PinnedScrollbar extends React.Component {
     ]
     let orderArray = [3,2,1,0,1,2]
 
+
+    const ListRepos = ({orderList}) =>{
+     return orderList.map((repoOrderValue) => (
+        <NewItem info={listOfAllRepos[repoOrderValue]} />
+      ));
+    }
+
     return (
       <div className="mainy" >
         <div style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}>
@@ -102,11 +109,7 @@ class PinnedScrollbar extends React.Component {
                 {/*above element needed for error message*/}
 
                 <ol className="thing try js-pinned-repos-reorder-list" >
-
-                  <NewItem info={listOfAllRepos[0]} />
-                  <NewItem info={listOfAllRepos[1]} />
-                  <NewItem info={listOfAllRepos[2]} />
-                  <NewItem info={listOfAllRepos[3]} />
+                  <ListRepos orderList={orderArray}/>
                   {/*}
                   <ListItem
                     repo="ERRORSCREAM" user="MichaelDimmitt"
