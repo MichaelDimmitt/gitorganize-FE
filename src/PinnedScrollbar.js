@@ -59,11 +59,11 @@ class PinnedScrollbar extends React.Component {
             {/*above element needed for error message*/}
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
               <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}}  className="" >Pinned repositories</h2>
+                <h2 style={{width:'100%'}}  className="" >Add a new remote/repository</h2>
                 {/*"custom f4 mb-2 text-normal"*/}
               </div>
               <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize your pinned repositories</h2>
+                <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize/Add Theme</h2>
                 {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
               </div>
             </div>
