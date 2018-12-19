@@ -3,6 +3,8 @@
   width: 359px;
 }
 
+.font-resizer { font-size: 16px; }
+
 .try {
   display: flex;
   list-style: none;
