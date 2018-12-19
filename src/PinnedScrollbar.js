@@ -76,7 +76,9 @@ class PinnedScrollbar extends React.Component {
     }
 
     ]
-    let orderArray = [3,2,1,0,1,2]
+    let arr = [3,2,1,0,-1,-2]
+    let orderArray = arr.filter(x => Math.sign(x) > -1 )
+    console.log(orderArray)
 
 
     const ListRepos = ({orderList}) =>{
@@ -84,97 +86,47 @@ class PinnedScrollbar extends React.Component {
         <NewItem info={listOfAllRepos[repoOrderValue]} />
       ));
     }
+    const Header = () => (
+      <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
+        <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
+          <h2 style={{width:'100%'}}  className="" >Add a new remote/repository</h2>
+          {/*"custom f4 mb-2 text-normal"*/}
+        </div>
+        <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
+          <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize/Add Theme</h2>
+          {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
+        </div>
+      </div>
+    )
+    const Dropdown = () => 
+      <div className="dropdown" style={{flex:'1', paddingTop: '15px', paddingRight: '10px'}}>
+        <button onClick={this.myFunction} className="dropbtn">Themes</button>
+        <div id="myDropdown" style={{right:'10px'}} className={"dropdown-content"+ ( (this.state.showy===true) ? " show" : "")}>
+          <input type="text" placeholder="Search.." id="myInput" />
+          <a href="#about">Pinned Repositories</a>
+          <a href="#base">Business Related</a>
+          <a href="#blog">Coding Related</a>
+          <a href="#contact">WorkBench Current</a>
+          <a href="#custom">WorkBench Finance</a>
+          <a href="#support">WorkBench Support</a>
+          <a href="#tools">WorkBench Social</a>
+        </div>
+      </div>
 
     return (
       <div className="mainy" >
-        <div style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}>
-          <div >
-            <div className="js-pinned-repos-reorder-container">
-            {/*above element needed for error message*/}
-            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
-              <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}}  className="" >Add a new remote/repository</h2>
-                {/*"custom f4 mb-2 text-normal"*/}
-              </div>
-              <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize/Add Theme</h2>
-                {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
-              </div>
-            </div>
-            <br/>
+        <div className="js-pinned-repos-reorder-container" style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}> {/*element needed for error message*/}
+          <Header/>
+          <br/>
 
-                <form className="js-pinned-repos-reorder-form" id="user-11463275-pinned-repos-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_repositories"
-                  acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"
-                  name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" />
-                {/*above element needed for error message*/}
+          <form className="js-pinned-repos-reorder-form" id="user-11463275-pinned-repos-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_repositories" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" /> {/*element needed for error message*/}
+            <ol className="thing try js-pinned-repos-reorder-list" >
+              <ListRepos orderList={orderArray}/>
+            </ol>
+          </form>      
+        </div>
 
-                <ol className="thing try js-pinned-repos-reorder-list" >
-                  <ListRepos orderList={orderArray}/>
-                  {/*}
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  */}
-                </ol>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div className="dropdown" style={{flex:'1', paddingTop: '15px', paddingRight: '10px'}}>
-          <button onClick={this.myFunction} className="dropbtn">Themes</button>
-          <div id="myDropdown" style={{right:'10px'}} className={"dropdown-content"+ ( (this.state.showy===true) ? " show" : "")}>
-            <input type="text" placeholder="Search.." id="myInput" />
-            <a href="#about">Pinned Repositories</a>
-            <a href="#base">Business Related</a>
-            <a href="#blog">Coding Related</a>
-            <a href="#contact">WorkBench Current</a>
-            <a href="#custom">WorkBench Finance</a>
-            <a href="#support">WorkBench Support</a>
-            <a href="#tools">WorkBench Social</a>
-          </div>
-        </div>
+        <Dropdown/>
       </div>
     );
   }
