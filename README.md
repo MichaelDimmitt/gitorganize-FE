@@ -16,6 +16,6 @@ Currently using minimal-react-starter as the base. No complaints.
 Regards, Michael Dimmitt
 
 Draggand Drop outsourced:
-option 1: current implementation ([react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) )
-option 2: ([react-dnd](https://github.com/react-dnd/react-dnd)
+<br/>option 1: current implementation ([react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) )
+<br/>option 2: ([react-dnd](https://github.com/react-dnd/react-dnd) )
 
