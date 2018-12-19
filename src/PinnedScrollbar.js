@@ -2,6 +2,9 @@ import React from 'react';
 const { AltItem } = require('./altItem.js')
 const { PinnedElement } = require('./PinnedElement.js')
 const { NotSure, SubmitOrError } = require('./unknownLogic.js')
+const { Header, Dropdown } = require('./Components.js')
+
+
 
 const ListItem = ({repo, user, description, starCount, majorityLanguage, languageColor}) => {
 console.log('hi', {repo})
@@ -24,94 +27,52 @@ console.log('hi', {repo})
 class PinnedScrollbar extends React.Component {
   constructor() {
     super();
-    this.state = {showy: false};
-
-    this.myFunction = this.myFunction.bind(this)
-  };
-
-  myFunction() {
-    console.log('prev',this.state.showy)
-    this.setState({showy: !this.state.showy})
-  };
-
-  render() {
-    /* classes used, externally,
-      "js-pinned-repos-reorder-container"
-      "js-pinned-repos-reorder-form"
-      "js-pinned-repos-reorder-list"
-    */
-    console.log('next', this.state.showy)
-    let listOfAllRepos = [
-    { // list of repos:
-      repo: "De-Nest",
-      user: "MichaelDimmitt",
-      starCount: 1,
-      majorityLanguage: "Javascript",
-      languageColor: "#f1e05a",
-      description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
-    },
-    {
-      repo:"the_willywanka_gitfactory",
-      user:"MichaelDimmitt",
-      starCount:3,
-      majorityLanguage:"Shell",
-      languageColor:"#89e051",
-      description:"Want me to build you something in git? open an issue or direct message me on slack. 😁 "
-    },
-    {
-      repo:"emoji-terminal",
-      user:"MichaelDimmitt",
-      starCount:4,
-      majorityLanguage:"Shell",
-      languageColor:"#89e051",
-      description:" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
-    },
-    {
-      repo:"ERRORSCREAM",
-      user:"MichaelDimmitt",
-      starCount:1,
-      majorityLanguage:"Shell",
-      languageColor:"#89e051",
-      description:"stdout to error"
-    }
-
-    ]
     let arr = [3,2,1,0,-1,-2]
+    let listOfAllRepos = [
+      { // list of repos:
+        repo: "De-Nest",
+        user: "MichaelDimmitt",
+        starCount: 1,
+        majorityLanguage: "Javascript",
+        languageColor: "#f1e05a",
+        description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
+      },
+      {
+        repo:"the_willywanka_gitfactory",
+        user:"MichaelDimmitt",
+        starCount:3,
+        majorityLanguage:"Shell",
+        languageColor:"#89e051",
+        description:"Want me to build you something in git? open an issue or direct message me on slack. 😁 "
+      },
+      {
+        repo:"emoji-terminal",
+        user:"MichaelDimmitt",
+        starCount:4,
+        majorityLanguage:"Shell",
+        languageColor:"#89e051",
+        description:" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
+      },
+      {
+        repo:"ERRORSCREAM",
+        user:"MichaelDimmitt",
+        starCount:1,
+        majorityLanguage:"Shell",
+        languageColor:"#89e051",
+        description:"stdout to error"
+      }
+    ]
+  };
+
+  render() { /* classes used, externally, "js-pinned-repos-reorder-container" "js-pinned-repos-reorder-form" "js-pinned-repos-reorder-list" */
     let orderArray = arr.filter(x => Math.sign(x) > -1 )
     console.log(orderArray)
-
 
     const ListRepos = ({orderList}) =>{
      return orderList.map((repoOrderValue) => (
         <NewItem info={listOfAllRepos[repoOrderValue]} />
       ));
     }
-    const Header = () => (
-      <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
-        <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-          <h2 style={{width:'100%'}}  className="" >Add a new remote/repository</h2>
-          {/*"custom f4 mb-2 text-normal"*/}
-        </div>
-        <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-          <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize/Add Theme</h2>
-          {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
-        </div>
-      </div>
-    )
-    const Dropdown = () => 
-      <div className="dropdown" style={{flex:'1', paddingTop: '15px', paddingRight: '10px'}}>
-        <button onClick={this.myFunction} className="dropbtn">Themes</button>
-        <div id="myDropdown" style={{right:'10px'}} className={"dropdown-content"+ ( (this.state.showy===true) ? " show" : "")}>
-          <input type="text" placeholder="Search.." id="myInput" />
-          <a href="#about">Pinned Repositories</a>
-          <a href="#base">Business Related</a>
-          <a href="#blog">Coding Related</a>
-          <a href="#contact">WorkBench Current</a>
-          <a href="#custom">WorkBench Finance</a>
-          <a href="#support">WorkBench Support</a>
-          <a href="#tools">WorkBench Social</a>
-        </div>
-      </div>
 
     return (
       <div className="mainy" >
@@ -123,7 +84,7 @@ class PinnedScrollbar extends React.Component {
             <ol className="thing try js-pinned-repos-reorder-list" >
               <ListRepos orderList={orderArray}/>
             </ol>
-          </form>      
+          </form>
         </div>
 
         <Dropdown/>
