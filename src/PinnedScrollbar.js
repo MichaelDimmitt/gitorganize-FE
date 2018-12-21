@@ -4,8 +4,6 @@ const { PinnedElement } = require('./PinnedElement.js')
 const { NotSure, SubmitOrError } = require('./unknownLogic.js')
 const { Header, Dropdown } = require('./Components.js')
 
-
-
 const ListItem = ({repo, user, description, starCount, majorityLanguage, languageColor}) => {
 
   return (
@@ -16,20 +14,20 @@ const ListItem = ({repo, user, description, starCount, majorityLanguage, languag
 }
 
 const NewItem = ({ info:{repo, user, description, starCount, majorityLanguage, languageColor}}) => {
-
   return (
     <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
       <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
     </li>
-);
+  );
 }
 
 class PinnedScrollbar extends React.Component {
   constructor() {
     super();
+    const orderListTheme1 = [3,2,1,0,-1,-2],
     this.state = {
-      arr: [3,2,1,0,-1,-2],
-      orderList:[],
+      orderListTheme1: orderListTheme1,
+      currOrderList: orderListTheme1.filter(x => Math.sign(x) > -1 ),
       listOfAllRepos: [
         { // list of repos:
           repo: "De-Nest",
@@ -65,7 +63,7 @@ class PinnedScrollbar extends React.Component {
         }
       ]
     }
-    this.state.orderList = this.state.arr.filter(x => Math.sign(x) > -1 );
+    
     this.onSortEnd = this.onSortEnd.bind(this)
   };
 
