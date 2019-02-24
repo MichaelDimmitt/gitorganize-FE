@@ -1,6 +1,6 @@
-This iteration is a proof of concept website. 
+This iteration is a proof of concept website.
 
-Currently using minimal-react-starter as the base. No complaints. 
+Currently using minimal-react-starter as the base. No complaints.
 <br>However as the project is starting to progress I may shift and start implementing some tdd.</br>
 
 ## What does it do?
@@ -14,3 +14,8 @@ Currently using minimal-react-starter as the base. No complaints.
 5) check the terminal if you are already running on port 3000.
 
 Regards, Michael Dimmitt
+
+Draggand Drop outsourced:
+<br/>option 1: current implementation ([react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) )
+<br/>option 2: ([react-dnd](https://github.com/react-dnd/react-dnd) )
+

@@ -2,18 +2,21 @@ import React from 'react';
 const { AltItem } = require('./altItem.js')
 const { PinnedElement } = require('./PinnedElement.js')
 const { NotSure, SubmitOrError } = require('./unknownLogic.js')
+const { Header, Dropdown } = require('./Components.js')
+
+
 
 const ListItem = ({repo, user, description, starCount, majorityLanguage, languageColor}) => {
-console.log('hi', {repo})
+
   return (
     <li className="pinned-item-list-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-item-list-item public source reorderable sortable-button-item">
       <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
     </li>
-);
+  );
 }
 
 const NewItem = ({ info:{repo, user, description, starCount, majorityLanguage, languageColor}}) => {
-console.log('hi', {repo})
+
   return (
     <li className="pinned-item-list-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-item-list-item public source reorderable sortable-button-item">
       <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
@@ -24,138 +27,91 @@ console.log('hi', {repo})
 class PinnedScrollbar extends React.Component {
   constructor() {
     super();
-    this.state = {showy: false};
-
-    this.myFunction = this.myFunction.bind(this)
+    this.state = {
+      arr: [3,2,1,0,-1,-2],
+      orderList:[],
+      listOfAllRepos: [
+        { // list of repos:
+          repo: "De-Nest",
+          user: "MichaelDimmitt",
+          starCount: 1,
+          majorityLanguage: "Javascript",
+          languageColor: "#f1e05a",
+          description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
+        },
+        {
+          repo:"the_willywanka_gitfactory",
+          user:"MichaelDimmitt",
+          starCount:3,
+          majorityLanguage:"Shell",
+          languageColor:"#89e051",
+          description:"Want me to build you something in git? open an issue or direct message me on slack. 😁 "
+        },
+        {
+          repo:"emoji-terminal",
+          user:"MichaelDimmitt",
+          starCount:4,
+          majorityLanguage:"Shell",
+          languageColor:"#89e051",
+          description:" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
+        },
+        {
+          repo:"ERRORSCREAM",
+          user:"MichaelDimmitt",
+          starCount:1,
+          majorityLanguage:"Shell",
+          languageColor:"#89e051",
+          description:"stdout to error"
+        }
+      ]
+    }
+    this.state.orderList = this.state.arr.filter(x => Math.sign(x) > -1 );
+    this.onSortEnd = this.onSortEnd.bind(this)
   };
 
-  myFunction() {
-    console.log('prev',this.state.showy)
-    this.setState({showy: !this.state.showy})
+  onSortEnd({oldIndex, newIndex}) {
+    this.setState({
+      arr: arrayMove(this.state.arr, oldIndex, newIndex)
+    });
   };
 
-  render() {
-    /* classes used, externally,
-      "js-pinned-repos-reorder-container"
-      "js-pinned-repos-reorder-form"
-      "js-pinned-repos-reorder-list"
-    */
-    console.log('next', this.state.showy)
-    let listOfAllRepos = [{ // list of repos:
-      repo: "De-Nest",
-      user: "MichaelDimmitt",
-      starCount: 1,
-      majorityLanguage: "Javascript",
-      languageColor: "#f1e05a",
-      description: "flatten_a_deeply_nested_object-or-array, just print out all the keys, just print out all the values. format the stuff do the things."
-    }]
-    let orderArray = [4,3,2,1,6,5]
+  makeNegative({index, arr, orderList}) {
+    console.log(orderList)
+    const arrIndex = arr.indexOf(orderList[index])
+    if( Math.sign(arr[arrIndex] !== -1)) {
+      arr[arrIndex] *= -1
+      this.setState({
+        arr:arr
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    console.log('hi',this.state.arr,'hi')
+  }
+
+
+  render() { /* classes used, externally, "js-pinned-repos-reorder-container" "js-pinned-repos-reorder-form" "js-pinned-repos-reorder-list" */
+  console.log('hi',this.state.arr,'hi')
+    const ListRepos = ({orderList}) =>{
+     return this.state.orderList.map((repoOrderValue) => (
+        <NewItem info={this.state.listOfAllRepos[repoOrderValue]} />
+      ));
+    }
 
     return (
       <div className="mainy" >
-        <div style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}>
-          <div >
-            <div className="js-pinned-items-reorder-container">
-            {/*above element needed for error message*/}
-            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
-              <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}}  className="" >Pinned repositories</h2>
-                {/*"custom f4 mb-2 text-normal"*/}
-              </div>
-              <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
-                <h2 style={{width:'100%'}} className="" aria-haspopup="dialog">Customize your pinned repositories</h2>
-                {/*"btn-link muted-link float-right mt-1 pinned-repos-setting-link"*/}
-              </div>
-            </div>
-            <br/>
-
-              <form className="js-pinned-items-reorder-form" id="user-11463275-pinned-items-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_items" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="QnOe86IplLatf6VOB69A1HRoBrbDA1pMWh+RLZzmba2KzGW802XbONZLWE2b4DnrpmP5y7sLmw6K+0gWNWH+ww==" />
-                {/*above element needed for error message*/}
-
-                <ol className="thing try js-pinned-items-reorder-list" >
-      
-                  <NewItem info={listOfAllRepos[0]} />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <AltItem />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="the_willywanka_gitfactory" user="MichaelDimmitt"
-                    starCount={3} majorityLanguage="Shell" languageColor="#89e051"
-                    description="Want me to build you something in git? open an issue or direct message me on slack. 😁 "
-                  />
-                  <ListItem
-                    repo="emoji-terminal" user="MichaelDimmitt"
-                    starCount={4} majorityLanguage="Shell" languageColor="#89e051"
-                    description=" 😂 🤖 🤓 😲 🤑 😎 🤔 👌 😍 🔥 🔥 🔥 🤗 - supports all terminal shells"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  <ListItem
-                    repo="ERRORSCREAM" user="MichaelDimmitt"
-                    starCount={1} majorityLanguage="Shell" languageColor="#89e051"
-                    description="stdout to error"
-                  />
-                  {/*}
-                  */}
-                </ol>
-              </form>
-            </div>
-          </div>
+        <div className="js-pinned-items-reorder-container" style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}> {/*element needed for error message*/}
+          <Header/>
+          <br/>
+          <button type="submit" onClick={() => this.makeNegative({index:1, arr: this.state.arr, orderList:this.state.orderList})}></button>
+          <form className="js-pinned-items-reorder-form" id="user-11463275-pinned-items-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_items" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" /> {/*element needed for error message*/}
+            <ol className="thing try js-pinned-items-reorder-list" >
+              <ListRepos orderList={this.state.orderArray}/>
+            </ol>
+          </form>
         </div>
-        <div className="dropdown" style={{flex:'1', paddingTop: '15px', paddingRight: '10px'}}>
-          <button onClick={this.myFunction} className="dropbtn">Dropdown</button>
-          <div id="myDropdown" style={{right:'10px'}} className={"dropdown-content"+ ( (this.state.showy===true) ? " show" : "")}>
-            <input type="text" placeholder="Search.." id="myInput" />
-            <a href="#about">About</a>
-            <a href="#base">Base</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-            <a href="#custom">Custom</a>
-            <a href="#support">Support</a>
-            <a href="#tools">Tools</a>
-          </div>
-        </div>
+        <Dropdown/>
       </div>
     );
   }

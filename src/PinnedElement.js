@@ -31,7 +31,7 @@ const LineThreeLanguageAndStar = ({ info:{ repo, user, starCount, majorityLangua
 )
 
 const PinnedElement = ({ info:{ repo, user, description, starCount, majorityLanguage, languageColor } }) => {
-  console.log({repo, user, description, starCount, languageColor})
+  
   return (
   <div className="pinned-item-list-item-content">
     <LineOneHandleAndTitle    info={ {repo, user}            }/>
