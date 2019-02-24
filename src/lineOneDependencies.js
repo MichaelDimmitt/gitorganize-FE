@@ -2,7 +2,7 @@ import React from 'react';
 export { HandleThing, RepoTitle, SeemsUnused }
 
 const HandleThing = ({ info }) => (
-  <span className="pinned-repository-handle js-pinned-repository-reorder float-left pr-2" title="Drag to reorder">
+  <span className="pinned-repository-handle js-pinned-item-reorder float-left pr-2" title="Drag to reorder">
     <svg className="octicon octicon-grabber" viewBox="0 0 8 16" version="1.1" width="8" height="16"
       aria-hidden="true">
       <path  d="M8 4v1H0V4h8zM0 8h8V7H0v1zm0 3h8v-1H0v1z" /></svg>

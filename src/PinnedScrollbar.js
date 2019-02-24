@@ -6,7 +6,7 @@ const { NotSure, SubmitOrError } = require('./unknownLogic.js')
 const ListItem = ({repo, user, description, starCount, majorityLanguage, languageColor}) => {
 console.log('hi', {repo})
   return (
-    <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
+    <li className="pinned-item-list-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-item-list-item public source reorderable sortable-button-item">
       <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
     </li>
 );
@@ -15,7 +15,7 @@ console.log('hi', {repo})
 const NewItem = ({ info:{repo, user, description, starCount, majorityLanguage, languageColor}}) => {
 console.log('hi', {repo})
   return (
-    <li  className="pinned-repo-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-repo-list-item public source reorderable sortable-button-item">
+    <li className="pinned-item-list-item  p-3 mb-3 border border-gray-dark rounded-1 js-pinned-item-list-item public source reorderable sortable-button-item">
       <PinnedElement info={{ repo, user, description, starCount, majorityLanguage, languageColor }} />
     </li>
 );
@@ -55,7 +55,7 @@ class PinnedScrollbar extends React.Component {
       <div className="mainy" >
         <div style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}>
           <div >
-            <div className="js-pinned-repos-reorder-container">
+            <div className="js-pinned-items-reorder-container">
             {/*above element needed for error message*/}
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
               <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
@@ -69,12 +69,11 @@ class PinnedScrollbar extends React.Component {
             </div>
             <br/>
 
-                <form className="js-pinned-repos-reorder-form" id="user-11463275-pinned-repos-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_repositories"
-                  acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"
-                  name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" />
+              <form className="js-pinned-items-reorder-form" id="user-11463275-pinned-items-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_items" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="QnOe86IplLatf6VOB69A1HRoBrbDA1pMWh+RLZzmba2KzGW802XbONZLWE2b4DnrpmP5y7sLmw6K+0gWNWH+ww==" />
                 {/*above element needed for error message*/}
 
-                <ol className="thing try js-pinned-repos-reorder-list" >
+                <ol className="thing try js-pinned-items-reorder-list" >
+      
                   <NewItem info={listOfAllRepos[0]} />
                   <ListItem
                     repo="ERRORSCREAM" user="MichaelDimmitt"
