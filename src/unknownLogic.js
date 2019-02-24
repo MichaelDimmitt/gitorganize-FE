@@ -4,6 +4,7 @@ export { NotSure, SubmitOrError }
 const NotSure = ({name}) => (
   <div>
     {/* not sure
+    // update classNames if you want to use.
     <div id="ajax-error-message" className="ajax-error-message flash flash-error">
       <svg className="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
         <path fillRule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" /></svg>
@@ -22,10 +23,10 @@ const SubmitOrError = ({name}) => (
     
     <h2 className="custom f4 mb-2 text-normal">
       Pinned repositories
-      <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="13" className="spinner pinned-repos-spinner js-pinned-repos-spinner"
+      <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="13" className="spinner pinned-items-spinner js-pinned-items-spinner"
         alt=""/>
       {/* below is the magical text that checks for error or success. */}
-      <span className="ml-2 text-gray f6 js-pinned-repos-reorder-message" role="status" aria-live="polite"
+      <span className="ml-2 text-gray f6 js-pinned-items-reorder-message" role="status" aria-live="polite"
         data-error-text="Something went wrong." data-success-text="Order updated."></span>
     </h2>
     <details style={{ width: '359px' }} className="details-reset details-overlay details-overlay-dark" data-deferred-details-content-url="/users/MichaelDimmitt/pinned_repositories_modal" id="choose-pinned-repositories">

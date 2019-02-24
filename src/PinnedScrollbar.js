@@ -94,8 +94,8 @@ class PinnedScrollbar extends React.Component {
   render() { /* classes used, externally, "js-pinned-repos-reorder-container" "js-pinned-repos-reorder-form" "js-pinned-repos-reorder-list" */
   console.log('hi',this.state.arr,'hi')
     const ListRepos = ({orderList}) =>{
-     return this.state.orderList.map((repoOrderValue) => (
-        <NewItem info={this.state.listOfAllRepos[repoOrderValue]} />
+     return this.state.orderList.map((repoOrderValue, index) => (
+        <NewItem key={index} info={this.state.listOfAllRepos[repoOrderValue]} />
       ));
     }
 
@@ -104,11 +104,12 @@ class PinnedScrollbar extends React.Component {
         <div className="js-pinned-items-reorder-container" style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}> {/*element needed for error message*/}
           <Header/>
           <br/>
-          <button type="submit" onClick={() => this.makeNegative({index:1, arr: this.state.arr, orderList:this.state.orderList})}></button>
+          {/* <button type="submit" onClick={() => this.makeNegative({index:1, arr: this.state.arr, orderList:this.state.orderList})}></button> */}
           <form className="js-pinned-items-reorder-form" id="user-11463275-pinned-items-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_items" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" /> {/*element needed for error message*/}
             <ol className="thing try js-pinned-items-reorder-list" >
               <ListRepos orderList={this.state.orderArray}/>
             </ol>
+            {/* <SubmitOrError/> */}
           </form>
         </div>
         <Dropdown/>
