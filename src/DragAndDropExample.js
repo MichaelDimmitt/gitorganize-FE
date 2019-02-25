@@ -11,7 +11,7 @@ const SortableItem = SortableElement(({value}) =>
 const SortableList = SortableContainer(({items}) => {
   console.log('state', {items}, 'state')
   return (
-    <ul>
+    <ul style={{display:'flex'}}>
       {items.map((value, index) => (
         <SortableItem key={`item-${index}`} index={index} value={value} />
       ))}
@@ -34,7 +34,7 @@ class SortableComponent extends Component {
     });
   };
   render() {
-    return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
+    return <SortableList axis="x" items={this.state.items} onSortEnd={this.onSortEnd} />;
   }
 }
 document.addEventListener("DOMContentLoaded", function() {
