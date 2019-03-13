@@ -2,7 +2,6 @@ import React from 'react';
 export { Header, Dropdown }
 
 const Header = () => {
-  console.log('saodhoaihodsihosidhsodih')
   return <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
     <div style={{width: '100%', borderStyle: 'solid', textAlign:'center', marginLeft:'10px', marginRight:'10px'}}>
       <h2 style={{width:'100%'}}  className="" >Add a new remote/repository</h2>

@@ -26,7 +26,6 @@ const NewItem = ({ info:{repo, user, description, starCount, majorityLanguage, l
 }
 
 const SortableItem = SortableElement( ({repoOrderValue, index, listOfAllRepos}) =>{
-  console.log({repoOrderValue, repo: listOfAllRepos[repoOrderValue]})
   return <NewItem key={`item-${index}`} info={listOfAllRepos[repoOrderValue]} />
 })
 const SortableList = SortableContainer(({orderList, listOfAllRepos}) =>{
@@ -103,16 +102,13 @@ class PinnedScrollbar extends React.Component {
   };
 
   onSortEnd({oldIndex, newIndex}) {
-    console.log({oldIndex, newIndex})
-    console.log('reaaached')
     this.setState({
       orderList: arrayMove(this.state.orderList, oldIndex, newIndex)
     });
   };
 
   makeNegative({index, arr, orderList}) {
-    console.log('oxxxxxxhxhxhxhhxh')
-    console.log(orderList)
+    console.log('make negative reached')
     const arrIndex = arr.indexOf(orderList[index])
     if( Math.sign(arr[arrIndex] !== -1)) {
       arr[arrIndex] *= -1
@@ -123,11 +119,10 @@ class PinnedScrollbar extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('hi',this.state.orderList,'hi')
+    console.log('orderList:',this.state.orderList)
   }
 
   render() { /* classes used, externally, "js-pinned-repos-reorder-container" "js-pinned-repos-reorder-form" "js-pinned-repos-reorder-list" */
-  console.log('hi',this.state.orderList,'hi')
     return (
       <div className="mainy" >
         <div className="js-pinned-items-reorder-container" style={{padding: '10px 0px 0px 10px', flex:'12', justifyContent:'space-evenly'}}> {/*element needed for error message*/}
