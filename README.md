@@ -1,7 +1,8 @@
-
-
-## Repository Dashboard – 
+## Repository Dashboard
 Customize and Rearrange: GitHub, GitLab, BitBucket repositories on a central view.
+
+Demo is live - showing future direction of the project:
+<br/>https://repository-dashboard.herokuapp.com/
 
 Currently using minimal-react-starter as the base. No complaints.
 <br>However as the project is starting to progress I may shift and start implementing some tdd.</br>
