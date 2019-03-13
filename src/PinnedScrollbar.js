@@ -130,7 +130,7 @@ class PinnedScrollbar extends React.Component {
           <br/>
           {/* <button type="submit" onClick={() => this.makeNegative({index:1, arr: this.state.arr, orderList:this.state.orderList})}></button> */}
           <form className="js-pinned-items-reorder-form" id="user-11463275-pinned-items-reorder-form" action="/users/MichaelDimmitt/reorder_pinned_items" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZPGZVl0xvQsVNRLfBda3s0M0/ktKPUH3MUUP9Ije3rIQMF3yEFbK7nja8x/SBhbWvgsQWEQ/9ySjoAeRmBJwTA==" /> {/*element needed for error message*/}
-              <SortableList axis="xy" orderList={this.state.orderList} listOfAllRepos={this.state.listOfAllRepos} onSortEnd={this.onSortEnd}/>
+              <SortableList axis="xy" orderList={this.state.orderList} listOfAllRepos={this.state.listOfAllRepos} onSortEnd={this.onSortEnd} useDragHandle/>
             {/* <SubmitOrError/> */}
           </form>
         </div>
