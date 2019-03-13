@@ -1,11 +1,14 @@
 import React from 'react';
+import { sortableHandle } from 'react-sortable-hoc';
 const { HandleThing, RepoTitle, SeemsUnused } = require('./lineOneDependencies.js')
 export { PinnedElement }
+
+const DragHandle = sortableHandle(() => <span><HandleThing/></span>);
 
 const LineOneHandleAndTitle = ({ info:{ repo, user } }) => (
   <span className="d-block position-relative">
     <input type="hidden" name="pinned_item_ids[]" id="pinned-item-reorder-147890778" value="147890778" className="form-control" />
-    <HandleThing /> {/* At moment seems it does not take data. May need to remove superflous logic. */}
+    <DragHandle /> {/* At moment seems it does not take data. May need to remove superflous logic. */}
     <RepoTitle   info={ {repo, user }}/>
     <SeemsUnused info={ {repo }      }/>
   </span>
