@@ -47,7 +47,7 @@ class PinnedScrollbar extends React.Component {
       //  },
       // }
       // not sure how I would do this or if it would be useful: thisPageTwentyFirstRepos:[],
-      arr: [3,2,1,0,-1,-2], // id's /* the numbers here will be id's and list of repos will change to object. */ 
+      arr: [0,1,2,3,0,1,2,3,0,1,2,3,0,1,2,3,3,2,1,0,-1,-2], // id's /* the numbers here will be id's and list of repos will change to object. */ 
       
       // id's could be formed by names. converted to hex.
       // alternatively, load the entire list from database ...
